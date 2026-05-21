@@ -190,5 +190,13 @@ class ReglaFrecuencia(ReglaTransformacion):
         raise ValueError(
             f"No existe una nota para la frecuencia {frecuencia}"
         )
+class Compositor:
+    def __init__(self, interprete: ReglaTransformacion):
+        self.interprete = interprete
 
+    def transformar(self, partitura: str) -> str:
+        return self.interprete.transformar(partitura)
+
+    def revertir(self, partitura: str) -> str:
+        return self.interprete.revertir(partitura)
 
